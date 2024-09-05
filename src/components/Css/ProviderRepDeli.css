@@ -1,0 +1,58 @@
+.ShowReports {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ShowReports h2 {
+    font-size: 28px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ShowReports h2 .back-arrow {
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.ShowReports .table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ShowReports .table th,
+.ShowReports .table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.ShowReports .table thead {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.ShowReports .table tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+.ShowReports .table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.ShowReports .btn-outline-primary {
+    border-color: #6f42c1;
+    color: #6f42c1;
+}
+
+.ShowReports .btn-outline-primary:hover {
+    background-color: #6f42c1;
+    color: white;
+}

@@ -1,0 +1,60 @@
+.ShowOrders {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ShowOrders h2 {
+    font-size: 28px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-arrow1 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.ShowOrders .table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ShowOrders .table th,
+.ShowOrders .table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.ShowOrders .table thead {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.ShowOrders .table tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+.ShowOrders .table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.ShowOrders .btn-outline-primary {
+    border-color: #6f42c1;
+    color: #6f42c1;
+}
+
+.ShowOrders .btn-outline-primary:hover {
+    background-color: #6f42c1;
+    color: white;
+}

@@ -1,0 +1,135 @@
+
+/* FormStyles.css */
+.form-container {
+    top: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+  .linea {
+    width: 700px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 1000px; 
+  }
+  
+  .leftColumn, .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .label {
+    color: white;
+    text-align: right; 
+    margin-right: 10px; 
+    min-width: 100px; 
+  }
+  
+  .field {
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid purple;
+    border-radius: 5px;
+    background-color: #800080; 
+  }
+  
+  .label {
+    color: white; 
+    text-align: left;
+    margin-right: 10px; 
+  }
+  
+  .input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  
+  .textarea {
+    width: calc(100% - 20px);
+    resize: none;
+    min-height: 200px;
+  }
+  
+
+/* TrackingBar.css */
+.tracking-bar {
+    position: relative;
+    width: 100%;
+  }
+  
+  .tracking-bar .background-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #D1C4E9;
+    z-index: 1;
+  }
+  
+  .tracking-bar .progress-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background-color: #7E57C2;
+    z-index: 2;
+  }
+  
+  .tracking-bar .timeline {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .tracking-bar .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .tracking-bar .timeline-separator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .tracking-bar .timeline-dot.completed {
+    background-color: #7E57C2;
+  }
+  
+  .tracking-bar .timeline-dot.not-completed {
+    background-color: #D1C4E9;
+  }
+  
+  .tracking-bar .timeline-connector {
+    flex: 1;
+    height: 4px;
+    background-color: transparent;
+  }
+  
+  .tracking-bar .timeline-content {
+    margin-top: 10px;
+  }

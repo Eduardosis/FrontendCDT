@@ -1,0 +1,43 @@
+.paqueteria-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-spacing: 0; /* Elimina espaciado entre columnas y filas */
+    border-collapse: separate; /* Permite espaciado entre filas y columnas */
+  }
+  
+  .paqueteria-table td, .paqueteria-table th {
+    padding: 8px;
+    text-align: center;
+    border: none; /* Elimina los bordes alrededor de las celdas para que solo se vea el espaciado */
+  }
+  
+  .paqueteria-table tr {
+    background-color: #f9f9f9; /* Fondo para las filas */
+    border-bottom: 1px solid #ddd; /* Borde inferior entre filas */
+  }
+  
+  .paqueteria-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alterna el fondo de las filas */
+  }
+  
+  .paqueteria-table tr:hover {
+    background: #e8f2fd;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .paqueteria-table th {
+    background-color: #000;
+    color: white;
+  }
+  
+  .card-img-top {
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 10px; /* Centra la imagen horizontalmente */
+  }
+  
+  h1 {
+    text-align: center;
+  }

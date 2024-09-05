@@ -1,0 +1,78 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #5c0099; /* Borde púrpura */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  .title {
+    color: #5c0099; /* Color púrpura para el título */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .formGroup label {
+    font-weight: bold;
+    color: #333; /* Color del texto */
+  }
+  
+  .formControl {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box;
+  }
+  
+  .formControl:focus {
+    border-color: #5c0099; /* Borde púrpura al enfocar */
+    outline: none; /* Quitar el borde predeterminado al enfocar */
+  }
+  
+  .btnPrimary {
+    background-color: #5c0099; /* Color púrpura para el botón */
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .btnPrimary:hover {
+    background-color: #4a007a; /* Un poco más oscuro al pasar el ratón */
+  }
+  
+  .textSuccess {
+    color: green;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .textDanger {
+    color: red;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .btnDanger {
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #5c0099; /* Borde púrpura */
+    background-color: white;
+    color: #5c0099;
+    cursor: pointer;
+  }
+  
+  .btnDanger:hover {
+    background-color: #f2f2f2; /* Fondo gris claro al pasar el ratón */
+  }
+  

@@ -1,0 +1,78 @@
+.CrearCliente {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px 15px; /* Menos padding para un diseño más compacto */
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.text-center-h {
+    text-align: center;
+    font-size: 20px; /* Tamaño de fuente más pequeño */
+    margin-bottom: 10px; /* Menos margen inferior */
+}
+
+.bold-text {
+    font-weight: bold;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+button {
+    background-color: purple;
+    color: white;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button.mt-4 {
+    margin-top: 1rem;
+}
+
+.pt-5 {
+    padding-top: 1.5rem; /* Menos padding superior */
+}
+
+.form-control {
+    font-size: 14px; /* Tamaño de fuente más pequeño para los inputs */
+    padding: 5px 10px; /* Menos padding para inputs */
+}
+
+.form-label {
+    font-size: 14px; /* Tamaño de fuente más pequeño para las etiquetas */
+}
+
+/* Asegura que los inputs estén alineados horizontalmente */
+.form-row {
+    display: flex;
+    gap: 10px; /* Espacio entre los inputs */
+}
+
+.form-row .col {
+    flex: 1;
+}
+.btn-outline-primary {
+    border-color: purple; /* Color del borde */
+    color: purple; /* Color del texto */
+}
+
+.btn-outline-primary:hover {
+    background-color: purple; /* Fondo del botón al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+/* Opcional: Ajusta el tamaño del texto si es necesario */
+.bold-text {
+    font-weight: bold;
+}

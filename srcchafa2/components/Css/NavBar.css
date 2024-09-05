@@ -1,0 +1,114 @@
+/* Estilos para la barra de navegación */
+.navbar-custom {
+    background-color: #5c217d;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-brand img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: white;
+    margin-left: 15px;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Estilos para el ícono del menú */
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-icon:hover .bar {
+    background-color: #6a0dad; /* Cambia el color al pasar el mouse */
+  }
+  
+  /* Estilos para el menú lateral */
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Oculto fuera de la pantalla */
+    width: 300px;
+    height: 100%;
+    background-color: #ad55b8;
+    color: white;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .side-menu.open {
+    right: 0; /* Muestra el menú */
+  }
+  
+  .side-menu .close-icon {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  
+  .side-menu .close-icon .bar {
+    width: 35px;
+    height: 4px;
+    background-color: white;
+    border-radius: 3px;
+  }
+  
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex: 1; /* Ocupa el espacio restante para empujar el enlace de cerrar sesión hacia abajo */
+  }
+  
+  .side-menu li {
+    margin: 20px 0;
+  }
+  
+  .side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .side-menu a:hover {
+    background-color: #5c217d;
+    color: #ffffff;
+  }
+  
+  /* Mueve el enlace de cerrar sesión hacia la parte inferior */
+  .side-menu .logout-link {
+    margin-top: auto; /* Empuja el enlace hacia la parte inferior del menú */
+    padding-top: 20px;
+    border-top: 1px solid white; /* Añade una línea superior para separar el enlace del resto */
+  }
+  

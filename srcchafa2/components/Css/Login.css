@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+.mt-5 {
+  margin-top: 1rem !important; /* Reducido para que el contenedor esté más arriba */
+}
+
+.text-center-h {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+/* Container */
+.container {
+  flex: auto;
+}
+
+/* Login Box */
+.login-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border: 4px solid #6f42c1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  color: #6c757d;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border: 2px solid #6f42c1;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.form-control:focus {
+  border-color: #6f42c1;
+  box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+/* Forgot Password Link */
+.forgot-password {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  color: #6f42c1;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn-outline-purple {
+  color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+.btn-outline-purple:hover {
+  background-color: #6f42c1;
+  color: #ffffff;
+}
+
+.btn[block="true"] {
+  display: block;
+  width: 100%;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}

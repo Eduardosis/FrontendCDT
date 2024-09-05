@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .CrearCuenta {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura de la ventana */
+    text-align: center;
+  }
+  
+  .CrearCuenta .content {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .CrearCuenta h2 {
+    margin-bottom: 30px;
+  }
+  
+  .btn-outline-purple {
+    border-color: #5c217d;
+    color: #5c217d;
+  }
+  
+  .btn-outline-purple:hover {
+    background-color: #5c217d;
+    color: white;
+  }
+  
+  .text-center-h {
+    font-weight: bolder;
+    font-size: 45px;
+  }
+  
+  .create-box {
+    border: 3px solid #5c217d;
+    padding: 40px 20px 40px 20px;
+    border-radius: 15px;
+    /* Añade un margen superior para ajustarlo más abajo */
+    margin-top: 5px;
+  }
+  
+  .bold-text {
+    font-weight: bold;
+  }
+  

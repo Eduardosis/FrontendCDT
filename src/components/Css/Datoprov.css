@@ -1,0 +1,87 @@
+.Provider {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Provider .container {
+  flex: 1;
+}
+
+.Provider .back-arrow3 {
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  color: #000000; /* Morado */
+}
+
+.Provider .text-center1 {
+  text-align: center;
+  color: #000000; /* Morado */
+  font-weight: bold;
+}
+
+.Provider .text-center-h1 {
+  text-align: center;
+  color: #800080; /* Morado */
+  font-weight: bold;
+  margin-bottom: -5px;
+  font-size: 20px;
+  margin-top: -15px;
+}
+
+.Provider .login-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Provider .form-label {
+  color: #800080; /* Morado */
+}
+
+.Provider .form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.Provider .form-control:focus {
+  border-color: #800080; /* Morado */
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+.Provider .btn-outline-purple {
+  background-color: #800080; /* Morado */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.Provider .btn-outline-purple:hover {
+  background-color: #5a005a; /* Morado más oscuro */
+  color: white;
+}
+
+.Provider .mt-31 {
+    margin-top: 5px;
+  margin-bottom: -5px;
+}
+
+.Provider .mt-41 {
+}
+
+.Provider .mt-5 {
+  margin-top: 3rem;
+}
+
+.Provider .mb-5 {
+  margin-bottom: 3rem;
+}
+
+.Provider .bold-text {
+  font-weight: bold;
+}

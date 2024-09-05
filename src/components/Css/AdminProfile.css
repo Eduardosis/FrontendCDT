@@ -1,0 +1,63 @@
+/* src/components/Css/AdminProfile.css */
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-info {
+    border: 2px solid #6f42c1; /* Contorno morado para la sección del perfil */
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para el contenedor del perfil */
+    background-color: #fff; /* Fondo blanco para el perfil */
+    align-items: center;
+}
+
+.profile-info h2, .profile-info h3 {
+    font-weight: bolder;
+    color: #6f42c1; /* Color morado para los títulos */
+}
+
+.profile-info p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.profile-info button {
+    margin-top: 20px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: #6f42c1; /* Morado oscuro para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-info button:hover {
+    background-color: #5a2d8a; /* Color morado más oscuro en hover */
+}
+
+.back-button {
+    margin: 20px 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: #6f42c1; /* Morado oscuro para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    position:relative;
+    margin-right: 90%;
+    margin-top: 100px;
+}
+
+.back-button:hover {
+    background-color: #5a2d8a; /* Color morado más oscuro en hover */
+}

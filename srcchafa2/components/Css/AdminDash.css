@@ -1,0 +1,42 @@
+.AdminMenu {
+    position: relative;
+    min-height: 100vh;
+}
+
+.logout-button {
+    position:absolute;
+    top: 100px;
+    right: 20px;
+    font-weight: bold;
+}
+
+.menu-box {
+    background-color: #6a0dad; /* Color morado de tu proyecto */
+    border-radius: 8px;
+    padding: 20px;
+    padding-right: 35px;
+    margin-top: 100px; /* Asegúrate de que no se superponga con el navbar */
+}
+
+.menu-box h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.menu-box .btn-outline-primary {
+    color: #ffffff; /* Color morado del botón */
+    border-color: #ffffff;
+}
+
+.menu-box .btn-outline-primary:hover {
+    background-color: #ffffff; /* Color morado del botón al pasar el ratón */
+    color: #6a0dad;
+}
+
+.menu-box .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.full {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.titles{
+    color: purple;
+    font-weight: bolder;
+}
+.entregas-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px 20px 10px;
+    max-width: 950px; 
+    width: 100%;
+    border: 3px solid #5c217d;
+    border-radius: 15px;
+    margin-top: 75px;
+    margin: 75px auto 0;
+    background-color: #f9f9f9; 
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+.form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color:black;
+}
+
+input, select, textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #8b2f9c;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #800080;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 12px;
+    width: 150px;
+}
+
+button:hover {
+    background-color: #8b2f9c;
+}
+.success-message {
+    color: green;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  

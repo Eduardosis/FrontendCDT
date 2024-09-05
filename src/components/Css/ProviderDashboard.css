@@ -1,0 +1,46 @@
+/* Estilos para el menú del proveedor */
+.provider-menu-container {
+  margin-top: 5%;
+}
+
+.provider-menu-container .menu-box {
+  background-color: #ffffff;
+  padding: 1rem; /* Reducir el padding */
+  border: 4px solid #6f42c1;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.provider-menu-container .menu-box h2 {
+  color: #6f42c1;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos de los botones */
+.provider-menu-container .btn-outline-primary {
+  color: #6f42c1;
+  border-color: #6f42c1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.provider-menu-container .btn-outline-primary:hover {
+  background-color: #6f42c1;
+  color: #ffffff;
+}
+
+.provider-menu-container .btn-provider {
+  width: 100%; /* Asegurar que los botones tengan el mismo tamaño */
+  margin: 0.5rem 0; /* Ajustar el margen */
+}
+
+/* Media queries para adaptarse a diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+  .provider-menu-container .menu-box {
+    padding: 0.5rem; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .provider-menu-container .btn-provider {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+  }
+}

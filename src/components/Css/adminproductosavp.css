@@ -1,0 +1,141 @@
+.back-arrow-avp {
+    cursor: pointer;
+    margin: 20px;
+  }
+  
+  .inventory-container-avp {
+    padding: 20px;
+  }
+  
+  .search-and-filter-avp {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar-avp {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input-avp {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-left: 150px;
+    padding-right: 100px;
+  }
+  
+  .search-button-avp {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .search-button-avp:hover {
+    background-color: #0056b3;
+  }
+  
+  .almacen-selector-avp select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .content-wrapper-avp {
+    display: flex;
+  }
+  
+  .photo-preview-avp {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+  }
+  
+  .hovered-product-image-avp {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  
+  .no-image-avp {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  .table-container-avp {
+    flex: 3;
+    padding-left: 20px;
+  }
+  
+  .product-table-avp {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-table-avp th, .product-table-avp td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .product-table-avp th:nth-child(1), /* Nombre */
+  .product-table-avp th:nth-child(2), /* Cantidad */
+  .product-table-avp th:nth-child(3), /* Precio */
+  .product-table-avp th:nth-child(4), /* Tamaño */
+  .product-table-avp th:nth-child(5), /* Marca */
+  .product-table-avp th:nth-child(6)  /* Almacén */ {
+    background-color: #800080; /* Morado */
+    color: white;
+  }
+  
+  .sortable-avp {
+    cursor: pointer;
+  }
+  
+  .sortable-avp:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .active-avp {
+    background-color: #e0e0e0;
+  }
+  
+  .in-stock-avp {
+    color: green;
+  }
+  
+  .out-of-stock-avp {
+    color: red;
+  }
+  
+  .pagination-avp {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Incrementar margen superior */
+  }
+  
+  .pagination-avp button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #800080; /* Morado */
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pagination-avp button.active-avp {
+    background-color: #4b0082; /* Un tono más oscuro de morado */
+  }
+  
+  .pagination-avp button:hover:not(.active-avp) {
+    background-color: #4b0082; /* Un tono más oscuro de morado */
+  }
+  

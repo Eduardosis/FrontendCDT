@@ -1,0 +1,141 @@
+/* ProviderClients.css */
+
+.ShowClients {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h2.text-center {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    background-color: black;
+    color: #fff;
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-left: 2rem; /* Ajusta el espacio izquierdo según sea necesario */
+}
+
+.back-arrow1 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.Card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.Card:hover {
+    transform: scale(1.05);
+}
+
+.Card-Body {
+    text-align: center;
+}
+
+.Button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.Button-outline-primary {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.Button-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.Modal .Modal-Title {
+    font-size: 1.5rem;
+}
+
+.Modal .Form-Group {
+    margin-bottom: 1rem;
+}
+
+.Modal .Form-Label {
+    font-weight: 600;
+}
+
+.Modal .Form-Control {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+.Modal.Footer{
+    padding: auto;
+}
+
+.butno{
+    margin-top: 15px;
+}
+.bto1{
+    background-color: black;
+    border-color: black;
+    color: #fff;
+    margin: 2px;
+    padding: 5px;
+}
+.bto2{
+    background-color: red;
+    border-color: red;
+    color: #fff;
+    margin: 2px;
+    padding: 5px;
+
+}
+.bto3{
+    background-color: purple;
+    border-color: purple;
+    color: #fff;
+    margin: 2px;
+    padding: 5px;
+
+}
+
+.bto1:hover{
+    background-color: rgb(255, 255, 255);
+    border-color: purple;
+    color: purple;
+    margin: 2px;
+}
+.bto2:hover{
+    background-color: rgb(255, 255, 255);
+    border-color: purple;
+    color: purple;
+    margin: 2px;
+}
+.bto3:hover{
+    background-color: rgb(255, 255, 255);
+    border-color: purple;
+    color: purple;
+    margin: 2px;
+}
+@media (max-width: 768px) {
+    h2.text-center {
+        font-size: 1.5rem;
+    }
+
+    .Card {
+        margin-bottom: 1rem;
+    }
+
+    .Button {
+        font-size: 0.875rem;
+    }
+}
