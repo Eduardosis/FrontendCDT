@@ -40,7 +40,7 @@ import AdminChangePassword from './components/Pages/Admin/AdminChangePass';
 import AdminAgregarRepartidor from './components/Pages/Admin/AdminAgregarRepartidor';
 import AdminAgregarCamion from './components/Pages/Admin/AdminAgregarCamion';
 import AdminVerRepartidor from './components/Pages/Admin/AdminVerRepartidores';
-
+//gomen
 
 const App = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('access_token'));
