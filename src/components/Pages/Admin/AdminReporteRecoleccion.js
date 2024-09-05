@@ -17,11 +17,11 @@ const RegistrarRecoleccion = () => {
 
   useEffect(() => {
     // Obtener opciones de paquetería y orden de envío desde la API
-    axios.get('http://127.0.0.1:8000/api/ee-serviciopaqueteria/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-serviciopaqueteria/')
       .then(response => setPaqueterias(response.data))
       .catch(error => console.error('Error al obtener las paqueterías:', error));
 
-    axios.get('http://127.0.0.1:8000/api/p-ordenenvio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
       .then(response => setOrdenesEnvio(response.data))
       .catch(error => console.error('Error al obtener las órdenes de envío:', error));
   }, []);
@@ -45,7 +45,7 @@ const RegistrarRecoleccion = () => {
 
     console.log('Datos enviados:', nuevoReporte); // Verifica que los datos sean correctos
 
-    axios.post('http://127.0.0.1:8000/api/agr-reporte-recoleccion/', nuevoReporte)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporte-recoleccion/', nuevoReporte)
       .then(response => {
         console.log('Reporte de recolección registrado:', response.data);
         alert('Reporte de recolección registrado exitosamente.');

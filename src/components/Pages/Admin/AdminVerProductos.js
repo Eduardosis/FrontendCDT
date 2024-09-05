@@ -21,9 +21,9 @@ const AdminVerProductos = () => {
     const fetchProducts = async () => {
       try {
         const [productsResponse, detailsResponse, photosResponse] = await Promise.all([
-          axios.get('http://127.0.0.1:8000/api/agr-productos/?format=json'),
-          axios.get('http://127.0.0.1:8000/api/agr-detalleproductos/?format=json'),
-          axios.get('http://127.0.0.1:8000/api/agr-fotos/?format=json')
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/?format=json'),
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-detalleproductos/?format=json'),
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-fotos/?format=json')
         ]);
 
         const combinedData = productsResponse.data.map(product => ({

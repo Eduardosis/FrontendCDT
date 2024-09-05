@@ -21,12 +21,12 @@ const ProviderRepDeli = () => {
         const fetchProviderData = async () => {
             try {
                 // Obtener todos los reportes de entrega
-                const responseReportes = await fetch('http://127.0.0.1:8000/api/agr-reporteentrega/');
+                const responseReportes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteentrega/');
                 const dataReportes = await responseReportes.json();
                 setReportesEntrega(dataReportes);
 
                 // Obtener todas las órdenes de envío y filtrar por proveedor logeado
-                const responseOrdenes = await fetch('http://127.0.0.1:8000/api/p-ordenenvio/');
+                const responseOrdenes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/');
                 const dataOrdenes = await responseOrdenes.json();
                 const filteredOrdenes = dataOrdenes.filter(orden => orden.proveedor === parseInt(providerId));
 
@@ -38,7 +38,7 @@ const ProviderRepDeli = () => {
                 setOrdenes(ordenesMap);
 
                 // Obtener detalles de productos
-                const responseProductos = await fetch('http://127.0.0.1:8000/api/agr-productos/');
+                const responseProductos = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/');
                 const dataProductos = await responseProductos.json();
                 const productosMap = {};
                 dataProductos.forEach(producto => {
@@ -47,7 +47,7 @@ const ProviderRepDeli = () => {
                 setProductos(productosMap);
 
                 // Obtener detalles de almacenes
-                const responseAlmacenes = await fetch('http://127.0.0.1:8000/api/agr-almacen/');
+                const responseAlmacenes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
                 const dataAlmacenes = await responseAlmacenes.json();
                 const almacenesMap = {};
                 dataAlmacenes.forEach(almacen => {
@@ -56,7 +56,7 @@ const ProviderRepDeli = () => {
                 setAlmacenes(almacenesMap);
 
                 // Obtener detalles de envíos
-                const responseEnvios = await fetch('http://127.0.0.1:8000/api/ee-envio/');
+                const responseEnvios = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/ee-envio/');
                 const dataEnvios = await responseEnvios.json();
                 const enviosMap = {};
                 dataEnvios.forEach(envio => {
@@ -65,7 +65,7 @@ const ProviderRepDeli = () => {
                 setEnvios(enviosMap);
 
                 // Obtener detalles de entregas
-                const responseEntregas = await fetch('http://127.0.0.1:8000/api/ee-entrega/');
+                const responseEntregas = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/ee-entrega/');
                 const dataEntregas = await responseEntregas.json();
                 const entregasMap = {};
                 dataEntregas.forEach(entrega => {

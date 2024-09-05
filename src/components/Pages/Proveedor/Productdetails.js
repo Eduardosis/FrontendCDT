@@ -15,13 +15,13 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (productId) {
-      axios.get(`http://127.0.0.1:8000/api/agr-productos/${productId}/`)
+      axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-productos/${productId}/`)
         .then(response => {
           setProduct(response.data);
   
           return Promise.all([
-            axios.get('http://127.0.0.1:8000/api/agr-detalleproductos/'),
-            axios.get('http://127.0.0.1:8000/api/agr-fotos/')
+            axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-detalleproductos/'),
+            axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-fotos/')
           ]);
         })
         .then(([detailsResponse, photosResponse]) => {

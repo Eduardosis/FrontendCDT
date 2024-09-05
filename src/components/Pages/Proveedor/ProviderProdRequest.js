@@ -18,13 +18,13 @@ const ProviderProdRequest = () => {
         const fetchProviderData = async () => {
             try {
                 // Obtener todas las solicitudes de productos para el proveedor logeado
-                const responseSolicitudes = await fetch('http://127.0.0.1:8000/api/agr-solicitar-producto/');
+                const responseSolicitudes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-solicitar-producto/');
                 const dataSolicitudes = await responseSolicitudes.json();
                 const filteredSolicitudes = dataSolicitudes.filter(solicitud => solicitud.proveedor === parseInt(providerId));
                 setSolicitudes(filteredSolicitudes);
 
                 // Obtener detalles de productos
-                const responseProductos = await fetch('http://127.0.0.1:8000/api/agr-productos/');
+                const responseProductos = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/');
                 const dataProductos = await responseProductos.json();
                 const productosMap = {};
                 dataProductos.forEach(producto => {
@@ -33,7 +33,7 @@ const ProviderProdRequest = () => {
                 setProductos(productosMap);
 
                 // Obtener detalles de almacenes
-                const responseAlmacenes = await fetch('http://127.0.0.1:8000/api/agr-almacen/');
+                const responseAlmacenes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
                 const dataAlmacenes = await responseAlmacenes.json();
                 const almacenesMap = {};
                 dataAlmacenes.forEach(almacen => {

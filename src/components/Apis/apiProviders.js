@@ -8,7 +8,7 @@ const getToken = () => {
   export const getEmpresas = async () => {
     const token = getToken();
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/p-empresa/', {
+      const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-empresa/', {
         //headers: {
           //Authorization: `Bearer ${token}` // Agregar el token JWT al encabezado de autorización
        // }
@@ -23,7 +23,7 @@ const getToken = () => {
   export const createProvider = async (providerData) => {
     const token = getToken();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/p-proveedor/', providerData, {
+      const response = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/p-proveedor/', providerData, {
         //headers: {
         //  Authorization: `Bearer ${token}` // Agregar el token JWT al encabezado de autorización
       // }
@@ -42,7 +42,7 @@ const getToken = () => {
     }
   
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/check-provider-status/', {
+      const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/check-provider-status/', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const getToken = () => {
         throw new Error('No token found');
     }
     try{
-    const response = await axios.get('http://127.0.0.1:8000/api/get-admin-id/', {
+    const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/get-admin-id/', {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export const getProviderId = async () => {
       throw new Error('No token found');
   }
   try{
-  const response = await axios.get('http://127.0.0.1:8000/api/get-provider-id/', {
+  const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/get-provider-id/', {
       headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',  
@@ -104,7 +104,7 @@ export const createClient = async (clientData) => {
       throw new Error('No token found');
   }
 
-  const response = await axios.post('http://127.0.0.1:8000/api/p-clientesp/', clientData, {
+  const response = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/p-clientesp/', clientData, {
      // headers: {
        //   'Authorization': `Bearer ${token}`
       //}
@@ -126,7 +126,7 @@ export const getProviderProducts = async () => {
   }
 
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/get-provider-products/', {
+    const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/get-provider-products/', {
       //headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ export const getProviderClients = async () => {
   }
 
   try{
-    const response = await axios.get('http://127.0.0.1:8000/api/get-provider-clients/', {
+    const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/get-provider-clients/', {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',  
@@ -170,7 +170,7 @@ export const createOrder = async (orderData) => {
       throw new Error('No token found');
   }
 
-  const response = await axios.post('http://127.0.0.1:8000/api/create-order/', orderData, {
+  const response = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/create-order/', orderData, {
      /// headers: {
         //  'Authorization': `Bearer ${token}`,  // Incluir el token en los encabezados
          // 'Content-Type': 'application/json'
@@ -191,7 +191,7 @@ export const getProviderOrders = async () => {
   }
 
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/get-provider-orders/', {
+    const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/get-provider-orders/', {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',

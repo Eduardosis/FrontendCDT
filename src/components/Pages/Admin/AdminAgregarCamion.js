@@ -15,7 +15,7 @@ const AdminAgregarCamion = () => {
       capacidadcarga: parseInt(capacidadCarga),
     };
 
-    axios.post('http://127.0.0.1:8000/api/ee-camion/', nuevoCamion)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/ee-camion/', nuevoCamion)
       .then(response => {
         alert('Camión agregado exitosamente');
         setPlacas('');

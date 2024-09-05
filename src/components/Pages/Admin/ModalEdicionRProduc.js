@@ -15,7 +15,7 @@ const ModalEdicion = ({ reporte, onClose, onSave }) => {
     setProducto(reporte?.producto || '');
 
     // Obtener la lista de productos disponibles
-    axios.get('http://127.0.0.1:8000/api/agr-productos/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/')
       .then(response => setProductos(response.data))
       .catch(error => console.error('Error al obtener los productos:', error));
   }, [reporte]);
@@ -29,7 +29,7 @@ const ModalEdicion = ({ reporte, onClose, onSave }) => {
       producto,
     };
 
-    axios.put(`http://127.0.0.1:8000/api/agr-reporteproducto-falla/${reporte.idpfallas}/`, updatedReporte)
+    axios.put(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporteproducto-falla/${reporte.idpfallas}/`, updatedReporte)
       .then(response => {
         onSave(updatedReporte);
         onClose();

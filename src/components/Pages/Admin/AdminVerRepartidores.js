@@ -12,15 +12,15 @@ const AdminVerRepartidores = () => {
   const [repartidorEdit, setRepartidorEdit] = useState(null);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/ee-repartidor/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-repartidor/')
       .then(response => setRepartidores(response.data))
       .catch(error => console.error('Error al obtener los repartidores:', error));
 
-    axios.get('http://127.0.0.1:8000/api/ee-camion/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-camion/')
       .then(response => setCamiones(response.data))
       .catch(error => console.error('Error al obtener los camiones:', error));
 
-    axios.get('http://127.0.0.1:8000/api/ee-serviciopaqueteria/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-serviciopaqueteria/')
       .then(response => setPaqueterias(response.data))
       .catch(error => console.error('Error al obtener las paqueterías:', error));
   }, []);

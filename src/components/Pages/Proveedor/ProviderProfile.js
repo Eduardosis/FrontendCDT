@@ -18,12 +18,12 @@ const ProviderProfile = () => {
         const fetchProviderData = async () => {
             try {
                 // Obtener detalles del proveedor
-                const responseProvider = await fetch(`http://127.0.0.1:8000/api/p-proveedor/${providerId}/`);
+                const responseProvider = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/p-proveedor/${providerId}/`);
                 const dataProvider = await responseProvider.json();
                 setProvider(dataProvider);
 
                 // Obtener detalles de la empresa
-                const responseEmpresa = await fetch(`http://127.0.0.1:8000/api/p-empresa/${dataProvider.empresa}/`);
+                const responseEmpresa = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/p-empresa/${dataProvider.empresa}/`);
                 const dataEmpresa = await responseEmpresa.json();
                 setEmpresa(dataEmpresa.nombre);
             } catch (error) {
@@ -41,7 +41,7 @@ const ProviderProfile = () => {
 
     const handleSave = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/p-proveedor/${providerId}/`, {
+            const response = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/p-proveedor/${providerId}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

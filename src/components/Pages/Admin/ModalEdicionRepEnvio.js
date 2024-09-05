@@ -19,7 +19,7 @@ const ModalEdicionRepEnvio = ({ reporte, almacenes, ordenesEnvio, paqueterias, o
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://127.0.0.1:8000/api/agr-reporteenvio/${reporte.idreporteenv}/`, {
+    axios.put(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporteenvio/${reporte.idreporteenv}/`, {
       descripcion,
       estatus,
       almacen,

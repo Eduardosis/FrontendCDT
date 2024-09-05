@@ -18,7 +18,7 @@ const ProviderClients = () => {
     useEffect(() => {
         const fetchClients = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/p-clientesp/');
+                const response = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-clientesp/');
                 const data = await response.json();
                 const filteredClients = data.filter(client => client.proveedor === parseInt(providerId));
                 setClients(filteredClients);
@@ -43,7 +43,7 @@ const ProviderClients = () => {
 
     const handleSaveChanges = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/p-clientesp/${selectedClient.idclientep}/`, {
+            const response = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/p-clientesp/${selectedClient.idclientep}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const ProviderClients = () => {
 
     const handleDeleteClient = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/p-clientesp/${selectedClient.idclientep}/`, {
+            const response = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/p-clientesp/${selectedClient.idclientep}/`, {
                 method: 'DELETE',
             });
 

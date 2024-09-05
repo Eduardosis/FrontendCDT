@@ -23,7 +23,7 @@ const ModalEdicionRepartidor = ({ repartidor, camiones, paqueterias, onClose, on
       paqueteria
     };
 
-    axios.put(`http://127.0.0.1:8000/api/ee-repartidor/${repartidor.idrepartidor}/`, updatedRepartidor)
+    axios.put(`${process.env.REACT_APP_APIDOMAIN}/api/ee-repartidor/${repartidor.idrepartidor}/`, updatedRepartidor)
       .then(response => {
         onSave(updatedRepartidor);
         onClose();

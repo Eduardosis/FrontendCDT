@@ -30,7 +30,7 @@ const ReporteEnvio = () => {
   useEffect(() => {
     const usuarioId = localStorage.getItem('id');
 
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         setAlmacenes(response.data);
 
@@ -43,14 +43,14 @@ const ReporteEnvio = () => {
       .catch(error => console.error('Error al obtener los almacenes:', error));
 
     // Obtener las órdenes de envío
-    axios.get('http://127.0.0.1:8000/api/p-ordenenvio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
       .then(response => {
         setOrdenesEnvio(response.data);
       })
       .catch(error => console.error('Error al obtener las órdenes de envío:', error));
 
     // Obtener los envíos
-    axios.get('http://127.0.0.1:8000/api/ee-envio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-envio/')
       .then(response => {
         setPaqueterias(response.data);
       })
@@ -59,7 +59,7 @@ const ReporteEnvio = () => {
 
   useEffect(() => {
     if (idAlmacen) {
-      axios.get('http://127.0.0.1:8000/api/agr-reporteenvio/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteenvio/')
         .then(response => {
           // Filtrar los reportes por idalmacen
           const reportesFiltrados = response.data.filter(reporte => reporte.almacen === idAlmacen);
@@ -94,7 +94,7 @@ const ReporteEnvio = () => {
 
   const handleRutaSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://127.0.0.1:8000/api/ee-ruta/', rutaFormData)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/ee-ruta/', rutaFormData)
       .then(response => {
         console.log('Ruta creada:', response.data);
         setSuccessMessage('Ruta creada exitosamente.');

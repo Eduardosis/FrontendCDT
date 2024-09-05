@@ -35,7 +35,7 @@ const ReporteEntregas = () => {
     console.log('Usuario ID from localStorage:', usuarioId);
 
     // Obtener el almacén asociado al usuario
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         console.log('Response data:', response.data);
         const almacenUsuario = response.data.find(almacen => almacen.usuario === parseInt(usuarioId));
@@ -53,17 +53,17 @@ const ReporteEntregas = () => {
       .catch(error => console.error('Error fetching almacenes:', error));
 
     // Cargar datos de entregas
-    axios.get('http://127.0.0.1:8000/api/ee-entrega/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-entrega/')
       .then(response => setEntregas(response.data))
       .catch(error => console.error('Error fetching entregas:', error));
 
     // Cargar datos de envios
-    axios.get('http://127.0.0.1:8000/api/ee-envio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-envio/')
       .then(response => setEnvios(response.data))
       .catch(error => console.error('Error fetching envios:', error));
       
     // Cargar datos de órdenes de envío
-    axios.get('http://127.0.0.1:8000/api/p-ordenenvio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
       .then(response => setOrdenesEnvio(response.data))
       .catch(error => console.error('Error fetching órdenes de envío:', error));
   }, []);
@@ -78,10 +78,10 @@ const ReporteEntregas = () => {
     if (name === 'entrega') {
       const entregaSeleccionada = entregas.find(entrega => entrega.identrega === parseInt(value));
       if (entregaSeleccionada) {
-        axios.get(`http://127.0.0.1:8000/api/ee-envio/${entregaSeleccionada.envio}/`)
+        axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/ee-envio/${entregaSeleccionada.envio}/`)
           .then(responseEnvio => {
             const recoleccionId = responseEnvio.data.recoleccion;
-            axios.get(`http://127.0.0.1:8000/api/agr-reporte-recoleccion/${recoleccionId}/`)
+            axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporte-recoleccion/${recoleccionId}/`)
               .then(responseRecoleccion => {
                 setFormData(prevData => ({
                   ...prevData,
@@ -98,7 +98,7 @@ const ReporteEntregas = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Data before sending:', formData);
-    axios.post('http://127.0.0.1:8000/api/agr-reporteentrega/', formData)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteentrega/', formData)
       .then(response => {
         console.log('Reporte de entrega enviado:', response.data);
         setMessage('Reporte de entrega enviado exitosamente.');
@@ -125,17 +125,17 @@ const ReporteEntregas = () => {
   const handleEntregaSubmit = (e) => {
     e.preventDefault();
     console.log('Entrega Form Data before sending:', entregaFormData);
-    axios.post('http://127.0.0.1:8000/api/ee-entrega/', entregaFormData)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/ee-entrega/', entregaFormData)
       .then(response => {
         console.log('Entrega creada:', response.data);
         setUltimoEntrega(response.data);
         setShowModal(false);
 
         // Obtener la orden de envío relacionada
-        axios.get(`http://127.0.0.1:8000/api/ee-envio/${response.data.envio}/`)
+        axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/ee-envio/${response.data.envio}/`)
           .then(envioResponse => {
             const recoleccionId = envioResponse.data.recoleccion;
-            axios.get(`http://127.0.0.1:8000/api/agr-reporte-recoleccion/${recoleccionId}/`)
+            axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporte-recoleccion/${recoleccionId}/`)
               .then(recoleccionResponse => {
                 setFormData(prevData => ({
                   ...prevData,

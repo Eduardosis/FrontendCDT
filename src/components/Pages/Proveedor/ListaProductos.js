@@ -17,7 +17,7 @@ const ProductList = () => {
   useEffect(() => {
     if (providerId) {
       // Fetch categories
-      axios.get('http://127.0.0.1:8000/api/agr-categoriaproducto/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-categoriaproducto/')
         .then(response => {
           setCategories(response.data);
         })
@@ -26,7 +26,7 @@ const ProductList = () => {
         });
 
       // Fetch all photos
-      axios.get('http://127.0.0.1:8000/api/agr-fotos/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-fotos/')
         .then(response => {
           setPhotos(response.data);
         })
@@ -40,7 +40,7 @@ const ProductList = () => {
   }, [providerId]);
 
   const fetchProviderProducts = () => {
-    axios.get('http://127.0.0.1:8000/api/agr-producto-proveedor/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-producto-proveedor/')
       .then(response => {
         const productIds = response.data
           .filter(record => record.proveedor === parseInt(providerId))
@@ -49,7 +49,7 @@ const ProductList = () => {
         // Fetch products only if productIds is not empty
         if (productIds.length > 0) {
           return Promise.all(productIds.map(id =>
-            axios.get(`http://127.0.0.1:8000/api/agr-productos/${id}/`)
+            axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-productos/${id}/`)
               .catch(error => {
                 console.error(`Error fetching product with ID ${id}:`, error);
                 return null;
@@ -72,7 +72,7 @@ const ProductList = () => {
   };
 
   const fetchProductsByCategory = (categoryId) => {
-    axios.get('http://127.0.0.1:8000/api/agr-categoria-producto/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-categoria-producto/')
       .then(response => {
         const categoryProducts = response.data
           .filter(record => record.categorias === categoryId)
@@ -81,11 +81,11 @@ const ProductList = () => {
         // Fetch products only if categoryProducts is not empty
         if (categoryProducts.length > 0) {
           return Promise.all(categoryProducts.map(id =>
-            axios.get(`http://127.0.0.1:8000/api/agr-productos/${id}/`)
+            axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-productos/${id}/`)
               .then(productResponse => {
                 const product = productResponse.data;
                 // Check if the product belongs to the provider
-                return axios.get(`http://127.0.0.1:8000/api/agr-producto-proveedor/`)
+                return axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-producto-proveedor/`)
                   .then(providerResponse => {
                     const providerProducts = providerResponse.data;
                     const isProductOfProvider = providerProducts.some(record => record.producto === product.idproducto && record.proveedor === parseInt(providerId));

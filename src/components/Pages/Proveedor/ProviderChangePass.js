@@ -47,7 +47,7 @@ const ProviderChangePassword = () => {
         }
         try {
             const token = localStorage.getItem('access_token');
-            const response = await axios.post('http://127.0.0.1:8000/api/user/change-password/', {
+            const response = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/user/change-password/', {
                 old_password: oldPassword,
                 new_password: newPassword,
                 new_password_confirm: confirmPassword

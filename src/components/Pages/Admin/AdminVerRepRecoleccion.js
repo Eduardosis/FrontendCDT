@@ -17,14 +17,14 @@ const ReportesRecoleccion = () => {
     const fetchReportes = async () => {
       try {
         const userId = localStorage.getItem('id');
-        const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         const almacen = almacenResponse.data.find(a => a.usuario === parseInt(userId));
 
         if (almacen) {
           setIdAlmacen(almacen.idalmacen);
-          const reporteResponse = await axios.get('http://127.0.0.1:8000/api/agr-reporte-recoleccion/');
-          const ordenEnvioResponse = await axios.get('http://127.0.0.1:8000/api/p-ordenenvio/');
-          const productoResponse = await axios.get('http://127.0.0.1:8000/api/agr-productos/');
+          const reporteResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporte-recoleccion/');
+          const ordenEnvioResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/');
+          const productoResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/');
 
           const ordenesAlmacen = ordenEnvioResponse.data.filter(o => {
             const producto = productoResponse.data.find(p => p.idproducto === o.producto);

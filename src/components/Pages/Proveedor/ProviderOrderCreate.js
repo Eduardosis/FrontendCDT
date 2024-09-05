@@ -24,17 +24,17 @@ const ProviderOrderCreate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const responseClientes = await fetch('http://127.0.0.1:8000/api/p-clientesp/');
+                const responseClientes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-clientesp/');
                 const dataClientes = await responseClientes.json();
                 const filteredClientes = dataClientes.filter(cliente => cliente.proveedor === parseInt(providerId));
                 setClientes(filteredClientes);
 
-                const responseProductos = await fetch('http://127.0.0.1:8000/api/agr-producto-proveedor/');
+                const responseProductos = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-producto-proveedor/');
                 const dataProductos = await responseProductos.json();
                 const filteredProductos = dataProductos.filter(prodProv => prodProv.proveedor === parseInt(providerId));
 
                 const productosConDetalles = await Promise.all(filteredProductos.map(async (prodProv) => {
-                    const responseProducto = await fetch(`http://127.0.0.1:8000/api/agr-productos/${prodProv.producto}/`);
+                    const responseProducto = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/agr-productos/${prodProv.producto}/`);
                     const dataProducto = await responseProducto.json();
                     return {
                         id: prodProv.producto,
@@ -63,7 +63,7 @@ const ProviderOrderCreate = () => {
         };
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/p-ordenenvio/', {
+            const response = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -20,13 +20,13 @@ const Reportes = () => {
         const userId = localStorage.getItem('id');
         
         // Obtener el almacén del usuario
-        const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         const almacen = almacenResponse.data.find(a => a.usuario === parseInt(userId));
         if (almacen) {
           setIdAlmacen(almacen.idalmacen);
 
           // Obtener productos asociados al almacén
-          const productosResponse = await axios.get('http://127.0.0.1:8000/api/agr-productos/');
+          const productosResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/');
           const productosAlmacen = productosResponse.data.filter(p => p.almacen === almacen.idalmacen);
           setProductos(productosAlmacen);
         } else {
@@ -42,7 +42,7 @@ const Reportes = () => {
 
   useEffect(() => {
     // Obtener los reportes de productos con fallas
-    axios.get('http://127.0.0.1:8000/api/agr-reporteproducto-falla/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteproducto-falla/')
       .then(response => {
         // Filtrar reportes para que solo se muestren los del almacén del usuario
         const productosIds = productos.map(p => p.idproducto);

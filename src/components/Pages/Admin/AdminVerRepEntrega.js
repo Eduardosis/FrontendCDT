@@ -19,7 +19,7 @@ const ReporteEntrega = () => {
   useEffect(() => {
     const usuarioId = localStorage.getItem('id');
 
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         setAlmacenes(response.data);
 
@@ -32,14 +32,14 @@ const ReporteEntrega = () => {
       .catch(error => console.error('Error al obtener los almacenes:', error));
 
     // Obtener las entregas
-    axios.get('http://127.0.0.1:8000/api/ee-entrega/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-entrega/')
       .then(response => {
         setEntregas(response.data);
       })
       .catch(error => console.error('Error al obtener las entregas:', error));
 
     // Obtener las órdenes de envío
-    axios.get('http://127.0.0.1/api/p-ordenenvio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
       .then(response => {
         setOrdenes(response.data);
       })
@@ -48,7 +48,7 @@ const ReporteEntrega = () => {
 
   useEffect(() => {
     if (idAlmacen) {
-      axios.get('http://127.0.0.1:8000/api/agr-reporteentrega/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteentrega/')
         .then(response => {
           // Filtrar los reportes por idalmacen
           const reportesFiltrados = response.data.filter(reporte => reporte.almacen === idAlmacen);

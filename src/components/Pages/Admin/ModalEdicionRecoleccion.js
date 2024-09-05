@@ -11,14 +11,14 @@ const ModalEdicionRecoleccion = ({ reporte, onClose, onSave }) => {
 
   useEffect(() => {
     // Obtener la lista de paqueterías
-    axios.get('http://127.0.0.1:8000/api/ee-serviciopaqueteria/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-serviciopaqueteria/')
       .then(response => {
         setPaqueterias(response.data);
       })
       .catch(error => console.error('Error al obtener las paqueterías:', error));
 
     // Obtener la lista de órdenes de envío
-    axios.get('http://127.0.0.1:8000/api/p-ordenenvio/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
       .then(response => {
         setOrdenes(response.data);
       })
@@ -34,7 +34,7 @@ const ModalEdicionRecoleccion = ({ reporte, onClose, onSave }) => {
       ordenenvio,
     };
 
-    axios.put(`http://127.0.0.1:8000/api/agr-reporte-recoleccion/${reporte.idrecoleccionp}/`, updatedReporte)
+    axios.put(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporte-recoleccion/${reporte.idrecoleccionp}/`, updatedReporte)
       .then(response => {
         onSave(updatedReporte);
         onClose();

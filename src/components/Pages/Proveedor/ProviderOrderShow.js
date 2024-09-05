@@ -18,13 +18,13 @@ const ProviderOrderShow = () => {
         const fetchOrders = async () => {
             try {
                 // Obtener órdenes del proveedor logeado
-                const responseOrders = await fetch('http://127.0.0.1:8000/api/p-ordenenvio/');
+                const responseOrders = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/');
                 const dataOrders = await responseOrders.json();
                 const filteredOrders = dataOrders.filter(order => order.proveedor === parseInt(providerId));
                 setOrders(filteredOrders);
 
                 // Obtener clientes del proveedor logeado
-                const responseClientes = await fetch('http://127.0.0.1:8000/api/p-clientesp/');
+                const responseClientes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/p-clientesp/');
                 const dataClientes = await responseClientes.json();
                 const filteredClientes = dataClientes.filter(cliente => cliente.proveedor === parseInt(providerId));
 
@@ -37,13 +37,13 @@ const ProviderOrderShow = () => {
                 setClientes(clientesMap);
 
                 // Obtener relación producto-proveedor
-                const responseProductos = await fetch('http://127.0.0.1:8000/api/agr-producto-proveedor/');
+                const responseProductos = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-producto-proveedor/');
                 const dataProductos = await responseProductos.json();
                 const filteredProductos = dataProductos.filter(prodProv => prodProv.proveedor === parseInt(providerId));
 
                 // Obtener detalles de productos y asociarlos con sus IDs
                 const productosConDetalles = await Promise.all(filteredProductos.map(async (prodProv) => {
-                    const responseProducto = await fetch(`http://127.0.0.1:8000/api/agr-productos/${prodProv.producto}/`);
+                    const responseProducto = await fetch(`${process.env.REACT_APP_APIDOMAIN}/api/agr-productos/${prodProv.producto}/`);
                     const dataProducto = await responseProducto.json();
                     return {
                         id: prodProv.producto,

@@ -27,7 +27,7 @@ const SolicitarProducto = () => {
     const usuarioId = localStorage.getItem('id'); // Obtener el ID del usuario desde localStorage
 
     // Obtener almacén del usuario
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         const almacenUsuario = response.data.find(almacen => almacen.usuario === parseInt(usuarioId));
         if (almacenUsuario) {
@@ -36,12 +36,12 @@ const SolicitarProducto = () => {
           const idAlmacen = almacenUsuario.idalmacen;
 
           // Obtener proveedores asociados al almacén
-          axios.get(`http://127.0.0.1:8000/api/agr-almacen-proveedor/?almacen=${idAlmacen}`)
+          axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-almacen-proveedor/?almacen=${idAlmacen}`)
             .then(response => {
               const proveedorIds = response.data.map(item => item.proveedor);
 
               // Obtener todos los proveedores y filtrar en el frontend
-              axios.get('http://127.0.0.1:8000/api/p-proveedor/')
+              axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-proveedor/')
                 .then(response => {
                   setProveedores(response.data.filter(prov => proveedorIds.includes(prov.idproveedor)));
                 })
@@ -54,7 +54,7 @@ const SolicitarProducto = () => {
             });
 
           // Obtener productos
-          axios.get('http://127.0.0.1:8000/api/agr-productos/')
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/')
             .then(response => {
               setProductos(response.data);
             })
@@ -71,7 +71,7 @@ const SolicitarProducto = () => {
   useEffect(() => {
     if (selectedProveedor) {
       // Filtrar productos según el proveedor seleccionado
-      axios.get('http://127.0.0.1:8000/api/agr-producto-proveedor/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-producto-proveedor/')
         .then(response => {
           const productosIds = response.data
             .filter(item => item.proveedor === parseInt(selectedProveedor))
@@ -95,7 +95,7 @@ const SolicitarProducto = () => {
       cantidad: parseInt(cantidad),
     };
 
-    axios.post('http://127.0.0.1:8000/api/agr-solicitar-producto/', data)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-solicitar-producto/', data)
       .then(response => {
         console.log('Solicitud enviada:', response.data);
         setMessage('Solicitud enviada exitosamente.');

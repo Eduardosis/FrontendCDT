@@ -20,7 +20,7 @@ const ModalEdicionRecibidos = ({ reporte, solicitudes, onClose, onSave }) => {
       solicitudpp,
     };
 
-    axios.put(`http://127.0.0.1:8000/api/agr-reporte-producto-recibidos/${reporte.idprecibidos}/`, updatedReporte)
+    axios.put(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporte-producto-recibidos/${reporte.idprecibidos}/`, updatedReporte)
       .then(response => {
         onSave(updatedReporte);
         onClose();

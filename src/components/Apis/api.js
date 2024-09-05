@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Crear una instancia de axios con una URL base
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api', // URL base de tu backend Django
+    baseURL: process.env.REACT_APP_APIDOMAIN+'/api', // URL base de tu backend Django
 });
 
 // Función para realizar el login

@@ -18,14 +18,14 @@ const AdminVerRepRecibidos = () => {
     const fetchReportesRecibidos = async () => {
       try {
         const userId = localStorage.getItem('id');
-        const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         const almacen = almacenResponse.data.find(a => a.usuario === parseInt(userId));
 
         if (almacen) {
           setIdAlmacen(almacen.idalmacen);
           
-          const recibidosResponse = await axios.get('http://127.0.0.1:8000/api/agr-reporte-producto-recibidos/');
-          const solicitudesResponse = await axios.get('http://127.0.0.1:8000/api/agr-solicitar-producto/');
+          const recibidosResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporte-producto-recibidos/');
+          const solicitudesResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-solicitar-producto/');
           
           const solicitudesAlmacen = solicitudesResponse.data.filter(solicitud => solicitud.almacen === almacen.idalmacen);
 

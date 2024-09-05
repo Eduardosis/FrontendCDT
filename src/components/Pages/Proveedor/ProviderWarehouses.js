@@ -16,10 +16,10 @@ const ProviderWarehouses = () => {
         const fetchProviderData = async () => {
             try {
                 // Obtener todos los almacenes
-                const responseAlmacenes = await fetch('http://127.0.0.1:8000/api/agr-almacen/');
+                const responseAlmacenes = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
                 const dataAlmacenes = await responseAlmacenes.json();
                 // Obtener relación proveedor-almacén
-                const responseAlmacenProveedor = await fetch('http://127.0.0.1:8000/api/agr-almacen-proveedor/');
+                const responseAlmacenProveedor = await fetch(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen-proveedor/');
                 const dataAlmacenProveedor = await responseAlmacenProveedor.json();
                 // Filtrar almacenes por proveedor logeado
                 const filteredAlmacenesProveedor = dataAlmacenProveedor.filter(ap => ap.proveedor === parseInt(providerId));

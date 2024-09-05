@@ -71,7 +71,7 @@ const Register = ({ onRegister }) => {
             return;
         }
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/p-empresa/', {
+            const response = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/p-empresa/', {
                 idempresa: empresaId.toUpperCase(), 
                 nombre: empresaNombre
             });

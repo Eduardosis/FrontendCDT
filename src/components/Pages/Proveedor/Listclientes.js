@@ -11,7 +11,7 @@ const ListaClientes = () => {
     const idProveedorLogueado = localStorage.getItem('provider_id'); // Obtener el ID del proveedor desde el almacenamiento local
 
     if (idProveedorLogueado) {
-      axios.get('http://localhost:8000/api/p-clientesp/')
+      axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-clientesp/')
         .then(response => {
           const clientesFiltrados = response.data.filter(cliente => cliente.proveedor === parseInt(idProveedorLogueado));
           setClientes(clientesFiltrados);

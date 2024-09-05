@@ -34,7 +34,7 @@ const ReporteEnvios = () => {
         console.log('Usuario ID from localStorage:', usuarioId);
 
         // Obtener el almacén asociado al usuario
-        axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+        axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
             .then(response => {
                 console.log('Response data:', response.data);
                 const almacenUsuario = response.data.find(almacen => almacen.usuario === parseInt(usuarioId));
@@ -52,17 +52,17 @@ const ReporteEnvios = () => {
             .catch(error => console.error('Error fetching almacenes:', error));
 
         // Cargar datos de envíos
-        axios.get('http://127.0.0.1:8000/api/ee-envio/')
+        axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-envio/')
             .then(response => setEnvios(response.data))
             .catch(error => console.error('Error fetching envios:', error));
 
         // Cargar datos de ordenes de envio
-        axios.get('http://127.0.0.1:8000/api/p-ordenenvio/')
+        axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-ordenenvio/')
             .then(response => setOrdenesEnvio(response.data))
             .catch(error => console.error('Error fetching ordenesEnvio:', error));
 
         // Cargar datos de recolecciones
-        axios.get('http://127.0.0.1:8000/api/agr-reporte-recoleccion/')
+        axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporte-recoleccion/')
             .then(response => {
                 console.log('Recolecciones:', response.data);  // Verifica que los datos sean correctos
                 setRecolecciones(response.data);
@@ -89,7 +89,7 @@ const ReporteEnvios = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form Data before sending:', formData);
-        axios.post('http://127.0.0.1:8000/api/agr-reporteenvio/', formData)
+        axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteenvio/', formData)
             .then(response => {
                 console.log('Reporte enviado:', response.data);
                 // Limpiar el formulario y mostrar el mensaje de éxito
@@ -111,7 +111,7 @@ const ReporteEnvios = () => {
     const handleEnvioSubmit = (e) => {
       e.preventDefault();
       console.log('Envio Form Data before sending:', envioFormData);
-      axios.post('http://127.0.0.1:8000/api/ee-envio/', envioFormData)
+      axios.post(process.env.REACT_APP_APIDOMAIN+'/api/ee-envio/', envioFormData)
           .then(response => {
               console.log('Envio creado:', response.data);
               setUltimoEnvio(response.data);
