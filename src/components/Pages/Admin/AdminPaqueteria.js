@@ -15,7 +15,7 @@ const AdminVerPaqueterias = () => {
     const fetchAlmacen = async () => {
       try {
         const userId = localStorage.getItem('id');
-        const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         const almacenData = almacenResponse.data.find(a => a.usuario === parseInt(userId));
         if (almacenData) {
           setAlmacenId(almacenData.idalmacen);
@@ -33,7 +33,7 @@ const AdminVerPaqueterias = () => {
   useEffect(() => {
     const fetchPaqueterias = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/ee-serviciopaqueteria/');
+        const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-serviciopaqueteria/');
         setPaqueterias(response.data);
       } catch (error) {
         console.error('Error fetching paqueterias:', error);
@@ -48,7 +48,7 @@ const AdminVerPaqueterias = () => {
       if (!almacenId) return;
 
       try {
-        const almacenPaqueteriaResponse = await axios.get('http://127.0.0.1:8000/api/ee-almacen-paqueteria/');
+        const almacenPaqueteriaResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-almacen-paqueteria/');
         const filteredRelations = almacenPaqueteriaResponse.data.filter(ap => ap.almacen === almacenId);
         const paqueteriaIds = filteredRelations.map(ap => ap.paqueteria);
 

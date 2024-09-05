@@ -118,7 +118,7 @@ const ReporteEnvios = () => {
               setShowModal(false);
   
               // Obtener la recolección y la orden de envío relacionada
-              axios.get(`http://127.0.0.1:8000/api/agr-reporte-recoleccion/${response.data.recoleccion}/`)
+              axios.get(`${process.env.REACT_APP_APIDOMAIN}/api/agr-reporte-recoleccion/${response.data.recoleccion}/`)
                   .then(recoleccionResponse => {
                       const recoleccionData = recoleccionResponse.data;
                       setFormData(prevData => ({

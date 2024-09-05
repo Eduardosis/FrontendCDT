@@ -30,7 +30,7 @@ const AdminProfile = () => {
         }
 
         // Fetch users
-        const response = await axios.get('http://127.0.0.1:8000/api/agr-usuario/', {
+        const response = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-usuario/', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -50,7 +50,7 @@ const AdminProfile = () => {
           setUserEmail(loggedInUser.correo);
 
           // Fetch warehouse info for the logged-in user
-          const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+          const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
           const almacenData = almacenResponse.data.find(a => a.usuario === parsedUserId);
           setAlmacen(almacenData || {});
         } else {

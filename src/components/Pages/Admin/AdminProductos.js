@@ -29,10 +29,10 @@ const AgrProductoForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const almacenesResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenesResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         setAlmacenes(almacenesResponse.data);
 
-        const proveedoresResponse = await axios.get('http://127.0.0.1:8000/api/p-proveedor/');
+        const proveedoresResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-proveedor/');
         setProveedores(proveedoresResponse.data);
       } catch (error) {
         console.error('Error al obtener almacenes o proveedores:', error);
@@ -53,7 +53,7 @@ const AgrProductoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const productoResponse = await axios.post('http://127.0.0.1:8000/api/agr-productos/', {
+      const productoResponse = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/', {
         idproducto: formData.idproducto,
         nombre: formData.nombre,
         stock: formData.stock,
@@ -64,7 +64,7 @@ const AgrProductoForm = () => {
         }
       });
 
-      const relacionResponse = await axios.post('http://127.0.0.1:8000/api/agr-producto-proveedor/', {
+      const relacionResponse = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-producto-proveedor/', {
         producto: productoResponse.data.idproducto,
         proveedor: formData.proveedor
       }, {
@@ -73,7 +73,7 @@ const AgrProductoForm = () => {
         }
       });
 
-      const detalleResponse = await axios.post('http://127.0.0.1:8000/api/agr-detalleproductos/', {
+      const detalleResponse = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-detalleproductos/', {
         producto: productoResponse.data.idproducto,
         peso: formData.peso,
         estado: formData.estado,
@@ -87,7 +87,7 @@ const AgrProductoForm = () => {
         }
       });
 
-      const fotoResponse = await axios.post('http://127.0.0.1:8000/api/agr-fotos/', {
+      const fotoResponse = await axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-fotos/', {
         producto: productoResponse.data.idproducto,
         link: formData.link
       }, {

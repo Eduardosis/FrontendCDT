@@ -18,7 +18,7 @@ const AdminVerProveedores = () => {
     const fetchAlmacen = async () => {
       try {
         const userId = localStorage.getItem('id');
-        const almacenResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen/');
+        const almacenResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/');
         const almacen = almacenResponse.data.find(a => a.usuario === parseInt(userId));
         if (almacen) {
           setAlmacenId(almacen.idalmacen);
@@ -36,7 +36,7 @@ const AdminVerProveedores = () => {
   useEffect(() => {
     const fetchProviders = async () => {
       try {
-        const providerResponse = await axios.get('http://127.0.0.1:8000/api/p-proveedor/?format=json');
+        const providerResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/p-proveedor/?format=json');
         setProviders(providerResponse.data);
       } catch (error) {
         console.error('Error fetching providers:', error);
@@ -51,7 +51,7 @@ const AdminVerProveedores = () => {
 
     const fetchFilteredProviders = async () => {
       try {
-        const almacenProveedorResponse = await axios.get('http://127.0.0.1:8000/api/agr-almacen-proveedor/');
+        const almacenProveedorResponse = await axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen-proveedor/');
         const filteredRelations = almacenProveedorResponse.data.filter(ap => ap.almacen === almacenId);
         const providerIds = filteredRelations.map(ap => ap.proveedor);
 

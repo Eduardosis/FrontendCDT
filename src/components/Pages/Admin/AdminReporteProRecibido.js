@@ -18,7 +18,7 @@ const AdminReporteProRecibido = ({ onLogout }) => {
     const usuarioId = localStorage.getItem('id'); // Obtener el ID del usuario desde localStorage
     console.log('Usuario ID from localStorage:', usuarioId);
 
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         // Obtener el idalmacen del usuario
         const almacenUsuario = response.data.find(almacen => almacen.usuario === parseInt(usuarioId));
@@ -26,7 +26,7 @@ const AdminReporteProRecibido = ({ onLogout }) => {
           const idAlmacen = almacenUsuario.idalmacen;
 
           // Obtener las solicitudes del almacén
-          axios.get('http://127.0.0.1:8000/api/agr-solicitar-producto/')
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-solicitar-producto/')
             .then(response => {
               const solicitudesFiltradas = response.data.filter(solicitud => solicitud.almacen === idAlmacen);
               setSolicitudes(solicitudesFiltradas);
@@ -55,7 +55,7 @@ const AdminReporteProRecibido = ({ onLogout }) => {
       solicitudpp: parseInt(solicitudpp), 
     };
 
-    axios.post('http://127.0.0.1:8000/api/agr-reporte-producto-recibidos/', data)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporte-producto-recibidos/', data)
       .then(response => {
         console.log('Datos enviados correctamente:', response.data);
         setMessage('Reporte creado exitosamente');

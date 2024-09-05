@@ -20,7 +20,7 @@ const AdminReporteProFalla = ({ onLogout }) => {
     const usuarioId = localStorage.getItem('id'); // Obtener el ID del usuario desde localStorage
     console.log('Usuario ID from localStorage:', usuarioId);
 
-    axios.get('http://127.0.0.1:8000/api/agr-almacen/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-almacen/')
       .then(response => {
         // Obtener el idalmacen del usuario
         const almacenUsuario = response.data.find(almacen => almacen.usuario === parseInt(usuarioId));
@@ -28,7 +28,7 @@ const AdminReporteProFalla = ({ onLogout }) => {
           const idAlmacen = almacenUsuario.idalmacen;
 
           // Obtener los productos del almacén
-          axios.get('http://127.0.0.1:8000/api/agr-productos/')
+          axios.get(process.env.REACT_APP_APIDOMAIN+'/api/agr-productos/')
             .then(response => {
               const productosFiltrados = response.data.filter(producto => producto.almacen === idAlmacen);
               setProductos(productosFiltrados);
@@ -64,7 +64,7 @@ const AdminReporteProFalla = ({ onLogout }) => {
       producto, 
     };
 
-    axios.post('http://127.0.0.1:8000/api/agr-reporteproducto-falla/', data)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/agr-reporteproducto-falla/', data)
       .then(response => {
         console.log('Datos enviados correctamente:', response.data);
         setMessage('Reporte de falla creado exitosamente');

@@ -14,12 +14,12 @@ const AdminAgregarRepartidor = () => {
 
   useEffect(() => {
     // Obtener los camiones
-    axios.get('http://127.0.0.1:8000/api/ee-camion/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-camion/')
       .then(response => setCamiones(response.data))
       .catch(error => console.error('Error al obtener los camiones:', error));
 
     // Obtener las paqueterías
-    axios.get('http://127.0.0.1:8000/api/ee-serviciopaqueteria/')
+    axios.get(process.env.REACT_APP_APIDOMAIN+'/api/ee-serviciopaqueteria/')
       .then(response => setPaqueterias(response.data))
       .catch(error => console.error('Error al obtener las paqueterías:', error));
   }, []);
@@ -34,7 +34,7 @@ const AdminAgregarRepartidor = () => {
       paqueteria,
     };
 
-    axios.post('http://127.0.0.1:8000/api/ee-repartidor/', newRepartidor)
+    axios.post(process.env.REACT_APP_APIDOMAIN+'/api/ee-repartidor/', newRepartidor)
       .then(response => {
         console.log('Repartidor agregado:', response.data);
         setNombre('');
